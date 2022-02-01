@@ -1,0 +1,311 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS from Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Connection Bundle ( Bootstrap too )-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/home/style.css' %}">
+    <title>Wypożyczalnia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-body">
+        <div class="header">
+        <!--Sticky header with info 24/7-->
+        <div class="upper-header">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-2">
+                    <img src="{% static 'images/location_on_icon.png' %}" alt="" >
+                    <span id="only_where_you_want">GDZIE TYLKO CHCESZ</span>
+                </div>
+                <div class="col-lg-1" id="nigga">
+                    <img src="{% static 'images/clock_icon.png' %}" alt="">
+                    <span>24/7</span></div>
+                <div class="col-lg-2">
+                    <span><img src="{% static 'images/facebook_social_icon.png' %}" alt=""></span>
+                    <span><img src="{% static 'images/google_google+_plus_icon.png' %}" alt=""></span>
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="col-lg-2">
+                        <p>
+                            Hello, {{ user.username }}
+                        </p>
+                    </div>
+                    <div class="col-lg-1">
+                        <a href="{% url 'logout' %}">Log out</a>
+                    </div>
+                {% else %}
+                    <div class="col-lg-1 account" >
+                        <a href="login/">Log In</a>
+                    </div>
+
+                    <div class="col-lg-1 account">
+                        <a href="registration">Sign Up</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!--End of sticky header-->
+
+        <!-- All time high header is here -->
+        <div class="under-header">
+            
+            <img src="{% static 'images/speed_rental.jpg' %}" id="speed-rental" alt="" >
+            <ul>
+                <li><a href="" style="color: #F0C540;">Strona główna</a></li>
+                <li><a href="">Rezerwacja</a></li>
+                <li><a href="#gallery">Oferta</a></li>
+                <li><a href="#wynajem-pojazdow">O firmie</a></li>
+                <li><a href="#contact-anchor">Informacja</a></li>
+                <li><a href="#contact-anchor">Kontakt</a></li>
+                <li><a href=""><img src="{% static 'images/handset_logo_telephone_whatsapp_icon.png' %}" alt="">537 222 700</a></li>
+            </ul>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="first-preview">
+        <img src="{% static 'images/Screenshot_4.png' %}" alt="">
+        <div class="make-registration">
+            <div class="first-elements">
+                <div class="first-choose">
+                    <label for="select-place" id="first-choose">Miejsce i czas</label>
+                    <br>
+                    <select name="" id="select-place" >
+                        <option disabled selected><img src="{% static 'images/map-point.jpg' %}" alt="nigga">Choose location</option>
+                        <option value="">Wrocław</option>
+                        <option value="">Opole</option>
+                        <option value="">Katowice</option>
+                    </select>
+                    <br>
+                    <div class="car-return">
+                        <label for="car_return">Zwrot auta w tej samej lokalizacji</label>
+                        <input type="checkbox" name=""  id="car_return">
+                    </div>
+                    <input type="date" name="" id="date_choose" placeholder="Data" required >
+                </div>
+                <div class="car-comeback">
+                    <label for="comeback_place" id="car_comeback">Zwrot samochodu</label>
+                    <br>
+                    <select name="" id="comeback_place">
+                        <option value="" disabled selected>Wybierz Miejsce</option>
+                        <option value="">Wrocław Nadodrze</option>
+                        <option value="">Wrocław Stare Miasto</option>
+                        <option value="">Wrocław Psie Pole</option>
+                        <option value="">Wrocław Olbin</option>
+                    </select>
+                    <input type="date" name="" id="" >
+                    <br>
+                    <button type="submit">Gotowe, chcę odebrać samochód</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <span id="wydanie-promocja">Wydanie + zwrot  na terenie miasta 0 zł PROMOCJA</span>
+        </div>
+    </div>
+
+    <div class="main-info">
+        <div class="header-logo"><img src="{% static 'images/logo-header-3.png' %}" alt=""></div>
+        <p>Wypożyczalnia samochodów</p>
+        <div class="main-info-texts">
+            <div class="wrapper">
+                <div class="first-wrap">
+                    <div class="first-wrap-img">
+                        <img src="{% static 'images/car_drive_service_icon.png' %}" alt="">
+                    </div>
+                    <span>Nowe pojazdy bez limitu kilometrów</span>
+                    <span><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eius doloremque consequatur ullam voluptates officia dignissimos illo repellendus quaerat voluptas!</span></p>
+                </div>
+                <div class="second-wrap">
+                    <img src="{% static 'images/accept_antivirus_check_internet_protect_icon.png' %}" alt="">
+                    <span>Bez ukrytych kosztów</span>
+                    <span><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem doloremque totam corrupti hic similique voluptates possimus, qui enim. Cum illum inventore quam animi sequi reprehenderit nulla quia eaque dicta minima?</p></span>
+                </div>
+                <div class="third-wrap">
+                    <img src="{% static 'images/24 hours_24_7_customer_delivery_service_icon.png' %}" alt="">
+                    <span>Bez ukrytych kosztów</span>
+                    <span><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero asperiores unde inventore blanditiis, quas laudantium provident odio doloribus possimus eveniet voluptatum quae quis vel cum quam accusantium facilis ullam earum!</p></span>
+                </div>
+
+                <div class="four-wrap">
+                    <img src="{% static 'images/credit card_payment_purchase_icon.png' %}" alt="">
+                    <span>Nowe pojazdy bez limitu kilometrów</span>
+                    <span><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia accusantium consequuntur rerum, reprehenderit nisi doloremque laudantium veritatis sapiente molestias facere quaerat aliquid mollitia. Corporis fuga sapiente, rerum vitae fugit exercitationem?</p></span>
+                </div>
+                <div class="five-wrap">
+                    <img src="{% static 'images/auto_car_ride_transport_travel_icon.png' %}" alt="">
+                    <span>Nowe pojazdy bez limitu kilometrów</span>
+                    <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, voluptate nemo. Modi, molestias sit laudantium error nam assumenda amet recusandae animi asperiores, nisi iste inventore cumque, unde quibusdam vitae consectetur?</p></span>
+                </div>
+                <div class="six-wrap">
+                    <img src="{% static 'images/location_navigation_pin_pointer_icon.png' %}" alt="">
+                    <span>Bez ukrytych kosztów</span>
+                    <span><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit incidunt minima praesentium consequuntur voluptate et provident nihil hic magnam, unde nulla mollitia laboriosam? Ex debitis odio sapiente necessitatibus inventore et?</p></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gallery">
+
+        <p>POJAZDY DO WYNAJMU</p>
+        <!-- ================================== CAROUSEL =====================================-->
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static "images/bmw.png" %}" class="d-block w-100" alt="oh shit, i'm sorry">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>BMW 555</h5>
+                    <p>2.0 Benzyna, 1337, Mechaniczna</p>
+                    </div>
+                </div>
+              {% for car in cars %}
+                <div class="carousel-item">
+                    <img src="{{ car.image_link }}" class="d-block w-100" alt="oh shit, i'm sorry">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ car.name }}</h5>
+                        <p>{{ car.motor_type }}, {{ car.power}}, {{ car.transmition }}</p>
+                    </div>
+                </div>
+              {% endfor %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+          <!-- ============================== END OF CAROUSEL ================================ -->
+          <span><p class="info">Planujesz weekendową wycieczkę w góry lub dłuższą podróż w inne odległe miejsce? W takim razie serdecznie polecamy samochody osobowe z wypożyczalni samochodów Speedrental24, która znajduję się we Wrocławiu. Posiadamy bardzo szeroki wybór pojazdów, gdzie możesz zarezerwować między innymi jedne z nowszych samochodów znanych i cenionych marek. Zależy nam na zadowoleniu klientów z jazdy, dlatego w naszej ofercie zawarte zostały wyłącznie sprawdzone i współczesne modele, które zapewniają jednocześnie bezpieczeństwo i komfort na najwyższym poziomie.<br> <br>
+
+            Nasze samochody do wynajmu za każdym razem są także specjalnie przygotowywane przed odebraniem przez klienta, gdzie dokładnie sprawdzamy stan techniczny oraz dbamy o czystość i porządek zarówno na zewnątrz, jak i wewnątrz samochodu. Możesz zgłosić się do nas o dowolnej porze, ponieważ funkcjonujemy przez całą dobę! Cały proces wynajmu przebiega w błyskawicznym tempie, a przy okazji zaoszczędzasz o wiele więcej niż w innych standardowych wypożyczalniach. Ponadto nasza współpraca zyskuje na elastyczności, dzięki której możemy swobodnie dogadać się co do poszczególnych kwestii. Zawsze postaram dopasować się do Twoich potrzeb i możliwości, dlatego bez problemu możesz wyznaczyć odpowiedni czas i miejsce odebrania samochodu. Naszą kolejną zaletą jest również gwarancja ceny, której wysokość ustalana jest na samym początku. Powyższa zasada zabezpiecza klientów przed ponoszenie dodatkowych kosztów. Jedynie w wypadku naruszenia regulaminu lub wydłużenia wynajmu pobierana jest nadprogramowa opłata. Równocześnie nasza wyjątkowość polega na braku limitu przejechanych kilometrów, co zdecydowanie ułatwia podróżowanie.<br><br>
+            
+            Speedrenta24 to Twoja jedyna szansa na spokojną i beztroską jazdę, gdzie wszyscy pasażerowie odczuwają innowacyjną wygodę oraz mogą cieszyć się niezapomnianymi widokami. Co więcej, oferujemy także wynajęcie busów, które umożliwiają zabranie większej ilości osób i bagaży oraz wynajem motocykli, które stanowią jeden z największych hitów w tym sezonie. Mnóstwo ludzi coraz częściej wybiera ten środek komunikacji, ponieważ pozwala na szybsze przemieszczanie się i gwarantuje wzrost adrenaliny. Dla wszystkich fanów mocniejszych wrażeń polecamy właśnie nasze modele motocykli, natomiast pozostali mogą równie śmiało korzystać z innego rodzaju pojazdów.</p></span>
+
+    </div>
+    <div class="opinie">
+        <h3>OPINIE KLIENTÓW</h3>
+        <div class="opinie-wrap">
+            <div class="opinie-wrapper">
+                <img src="{% static 'images/user_male_icon.png' %}" alt="">
+                <h4>Dawid Błaszczykowski <br><img src="{% static 'images/cars_automobile_car_vehicle_icon.png' %}" alt="">Opel Corsa</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni minima temporibus, obcaecati ullam quis eligendi architecto esse porro aliquam delectus?</p>
+            </div>
+
+            <div class="opinie-wrapper">
+                <img src="{% static 'images/user_male_icon.png' %}" alt="">
+                <h4>Dawid Błaszczykowski <br><img src="{% static 'images/cars_automobile_car_vehicle_icon.png' %}" alt="">Opel Corsa</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni minima temporibus, obcaecati ullam quis eligendi architecto esse porro aliquam delectus?</p>
+
+            </div>
+
+            <div class="opinie-wrapper">
+                <img src="{% static 'images/user_male_icon.png' %}" alt="">
+                <h4>Dawid Błaszczykowski <br><img src="{% static 'images/cars_automobile_car_vehicle_icon.png' %}" alt="">Opel Corsa</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni minima temporibus, obcaecati ullam quis eligendi architecto esse porro aliquam delectus?</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="under-info">
+        <div id="wynajem-pojazdow">
+            <div class="wynajem-text">
+                <h3>Wynajem pojazdów Speed Rental 24</h3>
+                <p>Jesteśmy sprawdzoną firmą z bogatym doświadczeniem  w branży, które pozwala niezmiennie podążać za potrzebami nawet najbardziej wymagających Klientów. Stawiamy na jakość oraz Twoją wygodę niezależnie od tego, jakiego środka lokomocji poszukujesz i jak długo chcesz z niego korzystać! U nas zyskasz pewność najlepszej obsługi na światowym poziomie oraz gwarancję najniższych cen, które pozwolą Ci cieszyć się swobodą podróżowania
+                    bez względu na cel Twojej podróży!</p>
+                <div class="link-about-us"><a href="">O NAS <img src="{% static 'images/arrow_direction_forward_navigation_right_icon.png' %}" alt=""></a> </div>
+            </div>
+            <div class="wynajem-img">
+                <img src="{% static 'images/lil_chik.jpg' %}" alt="">
+            </div>
+            <div class="auto-z-oc">
+                
+            </div>
+        </div>
+        <div class="auto-oc">
+            <div class="img-naprawa">
+                <img src="{% static 'images/auto-z-oc.jpg' %}" alt="">
+            </div>
+            <div class="auto-oc-text">
+                <h3>Auto z OC  sprawcy</h3>
+                <p>Wypadki i kolizje to codzienność na polskich drogach. Jeżeli i Tobie przytrafiła się stłuczka, sprawdź, w jakich przypadkach możesz ubiegać się o zastępczy samochód z wypożyczalni SpeedRental24 opłacony z polisy OC sprawcy.</p>
+                <div class="link-auto-oc"><a href="#" >SZCZEGÓŁY <img src="{% static 'images/arrow_direction_forward_navigation_right_icon.png' %}" alt=""></a></div>
+            </div>
+        </div>
+
+        <div class="contakt-with-us">
+            <div id="contact-anchor"></div>
+            <div class="pytanie"><p><span>PYTANIA?</span>  SKONTAKTUJ SIĘ Z NAMI...</p></div>
+            <div class="pytanie-contact">
+                <p>
+                    <img src="{% static 'images/phone_icon.png' %}" alt=""><a href="tel:+48 537 322 700">+48 537 322 700</a>
+                </p>
+            </div>
+            <div class="contact-mail"><p><a href="mailto:example@gmail.com"><img src="{% static 'images/email_envenlope_letter_mail_icon.png' %}" alt="">NAPISZ DO NAS</a></p></div>
+        </div>
+        <div class="info-footer">
+            <div>
+                <h5>O WYPOŻYCZALNI</h5>
+                <p class="footer-more-info">SpeedRental24 to doskonały wybór dla wszystkich ceniących prostotę i wygodę podczas korzystania z wynajętego samochodu. Świadczymy usługi z zakresu <span>wynajmu nowych samochodów osobowych</span> oraz <span>dostawczych busów</span>, a także <span>motocykli</span>, gwarantujemy najniższe ceny bez ukrytych opłat oraz brak limitu przejechanych kilometrów! Sprawdź, jak działamy i skorzystaj z najlepszej okazji na rynku!</p>
+            </div>
+            <div>
+                <h5>DANE FIRMY</h5>
+                <p>Speedrental24 Sp. z o.o.<br>
+                    ul. Andrzeja Kmicica 56/11<br>
+                    54-514 Wrocław<br>
+                    KRS 0000881968<br>
+                    REGON 388087990<br>
+                    NIP 894-316-35-24</p>
+            </div>
+            <div>
+                <h5>KONTAKT</h5>
+                <p>
+                    Infolinia:<a  href="tel:+48 537 322 700" style="color: white;"> +48 537 322 700</a><br>
+                    Email: <a href="mailto:kontakt@speedrental24" style="color: #F0C540;">kontakt@speedrental24</a><br>
+                    Dla Ciebie: 24/7
+                </p>
+
+                <p>
+                    Akceptujemy płatności ONLINE
+                </p>
+                <div class="div-img"><img src="{% static 'images/Przelewy24.png' %}" alt=""><img src="{% static 'images/visa-mastercard-1.png' %}" alt=""></div>
+            </div>
+            <div>
+                <h5>ŚLEDŹ NAS NA:</h5>
+                <p>
+                    <div class="contact-footer">
+                        <a href=""><img src="{% static 'images/facebook_social_icon.png' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/google_google+_plus_icon.png' %}" alt=""></a>
+                    </div>
+                </p>
+            </div>
+        </div>
+        
+        <footer>
+           <p>Copyright © 2021</p>
+        </footer>
+    </div>
+</body>
+</html>
